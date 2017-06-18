@@ -1,0 +1,25 @@
+machine:
+  timezone:
+    America/Toronto
+
+  node:
+    version: 8.1.2
+
+dependencies:
+  pre:
+    - npm install npm@latest -g
+    - npm install @angular/cli@latest -g
+
+compile:
+  override:
+    - npm run build
+
+test:
+  override:
+    - npm run test:single
+
+deployment:
+  staging:
+    branch: develop
+    commands:
+      - echo "DEPLOY TO STAGING"
