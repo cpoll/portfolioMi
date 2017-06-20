@@ -14,8 +14,13 @@ import { PhotosComponent } from './photos/photos.component';
     BrowserModule,
     RouterModule.forRoot([
       {
-        path: 'photo',
+        path: 'photo/:category',
         component: PhotosComponent
+      },
+      {
+        path: '',
+        redirectTo: '/photo/animals',
+        pathMatch: 'full'
       }
     ])
   ],

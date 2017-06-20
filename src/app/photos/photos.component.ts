@@ -1,4 +1,7 @@
+import 'rxjs/add/operator/map';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-photos',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhotosComponent implements OnInit {
 
-  constructor() { }
+  private category: string;
+  private categories: string[] = ["animals", "people", "travel"];
+
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.route.params
+      .map(params => params['category'])
+      .subscribe((category) => {
+        this.setCategory(category);
+      })
   }
 
+  setCategory(category: string) {
+    this.category = category;
+  }
 }

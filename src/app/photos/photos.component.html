@@ -1,3 +1,11 @@
 <p>
   photos works!
 </p>
+<ul>
+  <li *ngFor="let category of categories">
+    <a [routerLink]="['/photo', category]">
+      {{category}}
+    </a>
+  </li>
+</ul>
+category: {{category}}
