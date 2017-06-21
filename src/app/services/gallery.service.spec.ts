@@ -9,7 +9,7 @@ describe('GalleryService', () => {
     });
   });
 
-  it('should be created', inject([GalleryService], (service: GalleryService) => {
+  xit('should be created', inject([GalleryService], (service: GalleryService) => {
     expect(service).toBeTruthy();
   }));
 });
