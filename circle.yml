@@ -22,4 +22,4 @@ deployment:
   staging:
     branch: develop
     commands:
-      - echo "DEPLOY TO STAGING"
+      - sh ./deploy_staging.sh
