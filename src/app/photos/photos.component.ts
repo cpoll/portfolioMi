@@ -14,7 +14,7 @@ export class PhotosComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private galleryService: GalleryService
+    public galleryService: GalleryService
   ) { }
 
   ngOnInit() {
