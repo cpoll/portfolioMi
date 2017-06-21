@@ -1,4 +1,19 @@
-.masonry-brick {
+masonry {
+    display:block;
+    padding: 0px;
+    border: solid transparent 2px;
+    box-sizing: border-box;
+}
+
+.brick {
+    margin: 0px;
+    padding: 0px;
     width: 33%;
-    display: inline-block;
+    min-height: 200px;
+    border: solid transparent 4px;
+    box-sizing: border-box;
+}
+
+img {
+    width:100%;
 }

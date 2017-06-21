@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { PhotosComponent } from './photos/photos.component';
 import { GalleryService } from './services/gallery.service';
 
+import { MasonryModule } from 'angular2-masonry';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,6 +17,7 @@ import { GalleryService } from './services/gallery.service';
   imports: [
     BrowserModule,
     HttpModule,
+    MasonryModule,
     RouterModule.forRoot([
       {
         path: 'photo/:category',
