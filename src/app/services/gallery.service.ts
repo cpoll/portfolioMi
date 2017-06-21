@@ -6,11 +6,13 @@ import * as _ from 'lodash';
 @Injectable()
 export class GalleryService {
 
-  public data: any = {};
+  public data: any = {categories: []};
   public selectedPhoto: any;
   public expanderVisible: boolean;
   public currentCategory: string;
   public photosInCategory: any[] = [];
+
+  public isGalleryAvailable: boolean = false;
 
   private dataUrl = 'assets/photos.json'
 
@@ -19,17 +21,16 @@ export class GalleryService {
       .toPromise()
       .then((result) => {  
         this.data = result.json();
-        console.log(this.data);
         this.switchCategory(this.data.categories[0]);
         this.selectedPhoto = this.data.photos;
         this.expanderVisible = false;
+        this.isGalleryAvailable = true;
       });
   };
 
   switchCategory(category){
       this.currentCategory = category;
       this.photosInCategory = _.filter(this.data.photos, {category:this.currentCategory}); //$filter('filter')(this.data.photos, {category:this.currentCategory});
-      console.log(this.photosInCategory);
   };
 
   switchPhoto(photo){

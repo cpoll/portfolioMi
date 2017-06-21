@@ -12,9 +12,6 @@ import { GalleryService } from '../services/gallery.service';
 })
 export class PhotosComponent implements OnInit {
 
-  public category: string;
-  public categories: string[] = ["animals", "people", "travel"];
-
   constructor(
     private route: ActivatedRoute,
     private galleryService: GalleryService
@@ -24,14 +21,15 @@ export class PhotosComponent implements OnInit {
     this.route.params
       .map(params => params['category'])
       .subscribe((category) => {
-        this.setCategory(category);
+        this.galleryService.switchCategory(category);
       })
-
-    console.log(this.galleryService);
   }
 
-  setCategory(category: string) {
-    this.galleryService.switchCategory(category);
-    this.category = category;
+  switchPhoto(photo) {
+    this.galleryService.switchPhoto(photo);
+  }
+
+  scrollToTop() {
+    window.scrollTo(0,0);
   }
 }
