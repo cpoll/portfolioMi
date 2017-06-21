@@ -10,8 +10,8 @@ import { Location } from '@angular/common';
 })
 export class PhotosComponent implements OnInit {
 
-  private category: string;
-  private categories: string[] = ["animals", "people", "travel"];
+  public category: string;
+  public categories: string[] = ["animals", "people", "travel"];
 
   constructor(
     private route: ActivatedRoute
