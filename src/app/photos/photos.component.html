@@ -1,11 +1,26 @@
-<p>
-  photos works!
-</p>
-<ul>
-  <li *ngFor="let category of categories">
-    <a [routerLink]="['/photo', category]">
-      {{category}}
-    </a>
-  </li>
-</ul>
-category: {{category}}
+<div *ngIf="galleryService.isGalleryAvailable">
+  category: {{galleryService.currentCategory}}
+  
+  <div class="row marketing">
+
+      <nav id="photoCategories">
+        <a *ngFor="let category of galleryService.data.categories" [routerLink]="['/photo', category]" [ngClass]="{selected: galleryService.currentCategory === category}">
+          {{category}}
+        </a>
+      </nav>
+
+      <masonry preserve-order [useImagesLoaded]="true" [options]="{ percentPosition: true, transitionDuration: '0.5s', stagger: '0.1s' }"><!-- http://masonry.desandro.com/options.html -->
+          <masonry-brick class="brick" *ngFor="let photo of galleryService.photosInCategory">
+              <img id="photo-{{$index}}" src='{{photo.smallSrc}}' ng-click="switchPhoto(photo)">
+          </masonry-brick>
+      </masonry> <!-- was masonry -->
+
+      <nav id="bottomPhotoCategories">
+        <a *ngFor="let category of galleryService.data.categories" [routerLink]="['/photo', category]" [ngClass]="{selected: galleryService.currentCategory === category}"
+          (click)="scrollToTop()">
+          {{category}}
+        </a>
+      </nav>
+
+  </div>
+</div>
