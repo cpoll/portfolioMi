@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
+import { GalleryService } from '../services/gallery.service';
+
 @Component({
   selector: 'app-photos',
   templateUrl: './photos.component.html',
@@ -14,7 +16,8 @@ export class PhotosComponent implements OnInit {
   public categories: string[] = ["animals", "people", "travel"];
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private galleryService: GalleryService
   ) { }
 
   ngOnInit() {
@@ -23,9 +26,12 @@ export class PhotosComponent implements OnInit {
       .subscribe((category) => {
         this.setCategory(category);
       })
+
+    console.log(this.galleryService);
   }
 
   setCategory(category: string) {
+    this.galleryService.switchCategory(category);
     this.category = category;
   }
 }
