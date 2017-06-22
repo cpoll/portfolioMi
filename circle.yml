@@ -12,7 +12,6 @@ dependencies:
 
 compile:
   override:
-    - ls node_modules
     - if [ $CIRCLE_BRANCH = 'develop' ]; then npm run build -- --base-href /staging/staging2/; fi
     - if [ $CIRCLE_BRANCH = 'master' ]; then npm run build; fi
 

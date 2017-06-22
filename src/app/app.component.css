@@ -1,0 +1,132 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.header {
+  color: #333;
+  font-size: 14px;
+
+  display: block;
+  border-bottom: 1px solid #e5e5e5;
+  line-height: 20px;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.top-navbar {
+    background-color: #2a2a2a;
+    background-image: none;
+    border: none;
+    margin: 0px;
+    box-sizing: border-box;
+    position: relative;
+    min-height: 50px;  
+}
+
+
+/* container - bootstrap inspired */
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* navbar-header (Title container) */
+.navbar-header {
+    float: left;
+}
+.navbar-header-title {
+    color: #BBB;
+    font-family: "Poiret One", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+
+    padding-right: 10px;
+    border-left: solid #555 3px;
+    border-right: solid #555 3px;
+
+    font-size: 25px;
+
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    line-height: 20px;
+}
+.navbar-header-title:hover,
+.navbar-header-title:focus {
+    text-decoration: none;
+}
+
+/* navbar-options (Site links) */
+.navbar-options {
+    float: left;
+    margin: 0;
+
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.navbar-options > li {
+    position: relative;
+    display: block;
+    float: left;
+}
+.navbar-options a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 20px;
+    font-size: 20px;
+
+    color: #BBB;
+    background-color: #2a2a2a;
+    font-family: "Poiret One", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-style: normal;
+}
+.navbar-options a:hover,
+.navbar-options a:focus {
+    text-decoration: none;
+    color: #2a2a2a;
+    background-color: #BBB;
+}
+
+.footer {
+  padding-top: 19px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #eee;
+  border-top: 1px solid #e5e5e5;
+  text-align: center;
+}

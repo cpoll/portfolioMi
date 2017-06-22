@@ -15,5 +15,43 @@ masonry {
 }
 
 img {
-    width:100%;
+  width:100%;
+  vertical-align: middle;
+  page-break-inside: avoid;
+}
+
+.photoContainer {
+    margin: 40px 0;
+}
+.photoContainer p {
+    margin-top: 28px;
+}
+
+nav.photoCategories
+{
+    text-align: center;
+    margin-bottom: 10px;
+}
+nav.photoCategories a 
+{
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 10px;
+
+    font: 20px normal;
+    color: #BBB;
+    font-family: "Poiret One", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+}
+nav.photoCategories a.selected {
+    color:#751;
+    pointer-events:none;
+}
+
+nav.bottomPhotoCategories
+{
+    margin-top: 20px;
 }

@@ -25,7 +25,7 @@ import { MasonryModule } from 'angular2-masonry';
       },
       {
         path: '',
-        redirectTo: '/photo/animals',
+        redirectTo: 'photo/animals',
         pathMatch: 'full'
       }
     ])
