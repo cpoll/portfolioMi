@@ -4,7 +4,7 @@
 DEFAULT="default_aws_profile"
 PROFILE=${AWS_PROFILE:-$DEFAULT}
 BUCKET="ambernaytrotter.com"
-SUBDIR="staging/staging2"
+SUBDIR="staging"
 DIR="dist/"
 
 BUCKET="s3://$BUCKET/$SUBDIR"
