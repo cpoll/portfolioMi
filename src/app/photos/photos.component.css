@@ -8,7 +8,7 @@ masonry {
 .brick {
     margin: 0px;
     padding: 0px;
-    width: 33%;
+    width: 33.33%;
     min-height: 200px;
     border: solid transparent 4px;
     box-sizing: border-box;
