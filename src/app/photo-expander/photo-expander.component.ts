@@ -12,7 +12,8 @@ export class PhotoExpanderComponent implements OnInit {
     public galleryService: GalleryService
   ) { }
 
-  ngOnInit() {
+  public ngOnInit() {
+    /* Empty */
   }
 
 }

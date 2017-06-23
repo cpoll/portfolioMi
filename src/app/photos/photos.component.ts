@@ -18,15 +18,15 @@ export class PhotosComponent implements OnInit {
     public galleryService: GalleryService
   ) { }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.route.params
-      .map(params => params['category'])
+      .map(params => params.category)
       .subscribe((category) => {
         this.galleryService.switchCategory(category);
-      })
+      });
   }
 
-  scrollToTop() {
+  public scrollToTop() {
     window.scrollTo(0, 0);
   }
 }

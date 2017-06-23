@@ -14,7 +14,7 @@ export class GalleryService {
 
   public isGalleryAvailable: boolean = false;
 
-  private dataUrl = 'assets/photos.json'
+  private dataUrl = 'assets/photos.json';
 
   constructor( private http: Http) {
     this.http.get(this.dataUrl)
@@ -26,47 +26,46 @@ export class GalleryService {
         this.expanderVisible = false;
         this.isGalleryAvailable = true;
       });
-  };
+  }
 
-  switchCategory(category){
+  public switchCategory(category) {
       this.currentCategory = category;
-      this.photosInCategory = _.filter(this.data.photos, {category:this.currentCategory}); // $filter('filter')(this.data.photos, {category:this.currentCategory});
-  };
+      this.photosInCategory = _.filter(this.data.photos, {category: this.currentCategory});
+  }
 
-  switchPhoto(photo){
+  public switchPhoto(photo) {
       this.selectedPhoto = photo;
       this.expanderVisible = true;
-  };
+  }
 
-  hideExpander() {
+  public hideExpander() {
       this.expanderVisible = false;
 
       // Scroll to the last-seen photo.
       const photoId = 'photo-' + this.getCurrentPhotoIndex();
-      console.log(photoId);
+
       // $location.hash(photoId); $anchorScroll(); isn't playing nicely, so we're doing the non-angular way for now
       // See also: http://stackoverflow.com/questions/29526187/anchorscroll-and-location-only-work-after-second-try
       document.getElementById(photoId).scrollIntoView();
-  };
+  }
 
-  nextPhoto(){
+  public nextPhoto() {
       let newPhotoIndex = this.getCurrentPhotoIndex() + 1;
-      if(newPhotoIndex >= this.photosInCategory.length) { 
-          newPhotoIndex = 0; 
+      if (newPhotoIndex >= this.photosInCategory.length) {
+          newPhotoIndex = 0;
       }
       this.switchPhoto(this.photosInCategory[newPhotoIndex]);
-  };
+  }
 
-  previousPhoto(){
+  public previousPhoto() {
       let newPhotoIndex = this.getCurrentPhotoIndex() - 1;
-      if(newPhotoIndex < 0) { 
-          newPhotoIndex = this.photosInCategory.length - 1; 
+      if (newPhotoIndex < 0) {
+          newPhotoIndex = this.photosInCategory.length - 1;
       }
       this.switchPhoto(this.photosInCategory[newPhotoIndex]);
-  };
+  }
 
-  //Private
-  getCurrentPhotoIndex() {
+  private getCurrentPhotoIndex() {
       return this.photosInCategory.indexOf(this.selectedPhoto);
-  };
+  }
 }
