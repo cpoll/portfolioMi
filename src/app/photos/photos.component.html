@@ -9,8 +9,8 @@
       </nav>
 
       <masonry preserve-order [useImagesLoaded]="true" [options]="{ horizontalOrder: true, percentPosition: true, transitionDuration: '0.5s', stagger: '0.1s' }"><!-- http://masonry.desandro.com/options.html -->
-          <masonry-brick class="brick" *ngFor="let photo of galleryService.photosInCategory">
-              <img id="photo-{{$index}}" src='{{photo.smallSrc}}' ng-click="switchPhoto(photo)">
+          <masonry-brick class="brick" *ngFor="let photo of galleryService.photosInCategory; let i = index">
+              <img id="photo-{{i}}" src='{{photo.smallSrc}}' (click)="galleryService.switchPhoto(photo)">
           </masonry-brick>
       </masonry>
 
@@ -23,3 +23,4 @@
 
   </div>
 </div>
+<app-photo-expander></app-photo-expander>

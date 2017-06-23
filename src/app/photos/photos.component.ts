@@ -4,11 +4,12 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { GalleryService } from '../services/gallery.service';
+import { PhotoExpanderComponent } from '../photo-expander/photo-expander.component';
 
 @Component({
   selector: 'app-photos',
   templateUrl: './photos.component.html',
-  styleUrls: ['./photos.component.css']
+  styleUrls: ['./photos.component.css'],
 })
 export class PhotosComponent implements OnInit {
 
@@ -25,11 +26,7 @@ export class PhotosComponent implements OnInit {
       })
   }
 
-  switchPhoto(photo) {
-    this.galleryService.switchPhoto(photo);
-  }
-
   scrollToTop() {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 }

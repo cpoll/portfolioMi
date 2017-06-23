@@ -1,0 +1,7 @@
+<div class="expander" *ngIf='galleryService.expanderVisible' [ngClass]="{'expander-visible': galleryService.expanderVisible}">
+    <span class="image-container">
+        <img [src]='galleryService.selectedPhoto.src' (click)='galleryService.hideExpander()' />
+    </span>
+    <div class="expander-arrow expander-arrow-left" (click)="galleryService.previousPhoto()"></div>
+    <div class="expander-arrow expander-arrow-right" (click)="galleryService.nextPhoto()"></div>
+</div>

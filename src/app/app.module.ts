@@ -8,11 +8,13 @@ import { PhotosComponent } from './photos/photos.component';
 import { GalleryService } from './services/gallery.service';
 
 import { MasonryModule } from 'angular2-masonry';
+import { PhotoExpanderComponent } from './photo-expander/photo-expander.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PhotosComponent
+    PhotosComponent,
+    PhotoExpanderComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,7 @@ import { MasonryModule } from 'angular2-masonry';
       }
     ])
   ],
-  exports: [RouterModule],
+  exports: [RouterModule, PhotoExpanderComponent],
   providers: [GalleryService],
   bootstrap: [AppComponent]
 })

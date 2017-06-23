@@ -16,10 +16,10 @@ export class GalleryService {
 
   private dataUrl = 'assets/photos.json'
 
-  constructor( private http: Http) { 
+  constructor( private http: Http) {
     this.http.get(this.dataUrl)
       .toPromise()
-      .then((result) => {  
+      .then((result) => {
         this.data = result.json();
         this.switchCategory(this.data.categories[0]);
         this.selectedPhoto = this.data.photos;
@@ -30,24 +30,23 @@ export class GalleryService {
 
   switchCategory(category){
       this.currentCategory = category;
-      this.photosInCategory = _.filter(this.data.photos, {category:this.currentCategory}); //$filter('filter')(this.data.photos, {category:this.currentCategory});
+      this.photosInCategory = _.filter(this.data.photos, {category:this.currentCategory}); // $filter('filter')(this.data.photos, {category:this.currentCategory});
   };
 
   switchPhoto(photo){
       this.selectedPhoto = photo;
       this.expanderVisible = true;
-      //$rootScope.bodyOverflowHidden = true;
   };
 
-  hideExpander(){
+  hideExpander() {
       this.expanderVisible = false;
-      //$rootScope.bodyOverflowHidden = false;
 
-      //Scroll to the last-seen photo.
-      const hash = 'photo-' + this.getCurrentPhotoIndex();
-      // $location.hash(hash); $anchorScroll(); isn't playing nicely, so we're doing the non-angular way for now
+      // Scroll to the last-seen photo.
+      const photoId = 'photo-' + this.getCurrentPhotoIndex();
+      console.log(photoId);
+      // $location.hash(photoId); $anchorScroll(); isn't playing nicely, so we're doing the non-angular way for now
       // See also: http://stackoverflow.com/questions/29526187/anchorscroll-and-location-only-work-after-second-try
-      document.getElementById(hash).scrollIntoView();
+      document.getElementById(photoId).scrollIntoView();
   };
 
   nextPhoto(){
