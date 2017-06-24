@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PhotoExpanderComponent } from './photo-expander.component';
+import { GalleryService } from '../services/gallery.service';
 
 describe('PhotoExpanderComponent', () => {
   let component: PhotoExpanderComponent;
@@ -8,7 +9,10 @@ describe('PhotoExpanderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PhotoExpanderComponent ]
+      declarations: [ PhotoExpanderComponent ],
+      providers: [
+        { provide: GalleryService, useValue: {} } // TODO: create mock class
+      ]
     })
     .compileComponents();
   }));
