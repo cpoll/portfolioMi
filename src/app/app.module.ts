@@ -9,12 +9,14 @@ import { GalleryService } from './services/gallery.service';
 
 import { MasonryModule } from 'angular2-masonry';
 import { PhotoExpanderComponent } from './photo-expander/photo-expander.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PhotosComponent,
-    PhotoExpanderComponent
+    PhotoExpanderComponent,
+    ContactPageComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +26,10 @@ import { PhotoExpanderComponent } from './photo-expander/photo-expander.componen
       {
         path: 'photo/:category',
         component: PhotosComponent
+      },
+      {
+        path: 'contact',
+        component: ContactPageComponent
       },
       {
         path: '',
