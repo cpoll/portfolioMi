@@ -139,6 +139,14 @@
     color: #2a2a2a;
     background-color: #BBB;
 }
+@media (max-width: 600px) {
+  .navbar-options a:hover,
+  .navbar-options a:focus {
+      text-decoration: none;
+      color: #BBB;
+      background: none;
+  }
+}
 
 .footer {
   padding-top: 19px;
