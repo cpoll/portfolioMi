@@ -2,7 +2,7 @@
   
   <div class="row">
 
-      <nav class="photoCategories">
+      <nav class="photo-categories">
         <a *ngFor="let category of galleryService.data.categories" [routerLink]="['/photo', category]" [ngClass]="{selected: galleryService.currentCategory === category}">
           {{category}}
         </a>
@@ -14,7 +14,7 @@
           </masonry-brick>
       </masonry>
 
-      <nav class="photoCategories bottomPhotoCategories">
+      <nav class="photo-categories bottom-photo-categories">
         <a *ngFor="let category of galleryService.data.categories" [routerLink]="['/photo', category]" [ngClass]="{selected: galleryService.currentCategory === category}"
           (click)="scrollToTop()">
           {{category}}

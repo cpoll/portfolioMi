@@ -30,19 +30,12 @@ img {
   page-break-inside: avoid;
 }
 
-.photoContainer {
-    margin: 40px 0;
-}
-.photoContainer p {
-    margin-top: 28px;
-}
-
-nav.photoCategories
+nav.photo-categories
 {
     text-align: center;
     margin-bottom: 10px;
 }
-nav.photoCategories a 
+nav.photo-categories a 
 {
     cursor: pointer;
     border: none;
@@ -56,12 +49,12 @@ nav.photoCategories a
     font-style: normal;
     text-decoration: none;
 }
-nav.photoCategories a.selected {
-    color:#751;
+nav.photo-categories a.selected {
+    color:#862;
     pointer-events:none;
 }
 
-nav.bottomPhotoCategories
+nav.bottom-photo-categories
 {
     margin-top: 20px;
 }

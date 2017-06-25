@@ -1,0 +1,16 @@
+.contact-info {
+    text-align: center;
+    font-size: 20px;
+    color: #BBB;
+    font-family: "Poiret One", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-style: normal;
+
+    padding-bottom: 300px;
+}
+.contact-info a {
+    color: #BBB;
+    font-family: "Poiret One", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-style: normal;
+}
