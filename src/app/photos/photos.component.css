@@ -12,6 +12,17 @@ masonry {
     border: solid transparent 4px;
     box-sizing: border-box;
 }
+@media (max-width: 703px) {
+  .brick {
+    width: 50%;
+  }
+}
+@media (max-width: 320px) {
+  .brick {
+    width: 100%;
+  }
+}
+
 
 img {
   width:100%;

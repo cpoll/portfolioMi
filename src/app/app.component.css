@@ -25,6 +25,11 @@
   padding-left: 15px;
   padding-right: 15px;
 }
+@media (max-width: 600px) {
+  .header {
+    min-height: 100px;
+  }
+}
 .top-navbar {
     background-color: #2a2a2a;
     background-image: none;
@@ -34,7 +39,6 @@
     position: relative;
     min-height: 50px;  
 }
-
 
 /* container - bootstrap inspired */
 .container {
@@ -81,6 +85,13 @@
     padding: 15px 15px;
     line-height: 20px;
 }
+@media (max-width: 600px) {
+  .navbar-header-title {
+    height: 50px;
+    border: none;
+  }
+}
+
 .navbar-header-title:hover,
 .navbar-header-title:focus {
     text-decoration: none;
@@ -94,6 +105,14 @@
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
+}
+@media (max-width: 600px) {
+  .navbar-options {
+    width: 100%;
+    left: auto;
+    right: auto;
+    height: 50px;
+  }
 }
 .navbar-options > li {
     position: relative;
@@ -110,7 +129,6 @@
     font-size: 20px;
 
     color: #BBB;
-    background-color: #2a2a2a;
     font-family: "Poiret One", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
     font-style: normal;
