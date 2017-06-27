@@ -5,7 +5,7 @@ masonry {
     box-sizing: border-box;
 }
 
-.brick {
+masonry-brick {
     margin: 0px;
     padding: 0px;
     width: 33.33%;
@@ -21,6 +21,17 @@ masonry {
   .brick {
     width: 100%;
   }
+}
+masonry-brick div.debug-name {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    z-index: 1000;
+
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: white;
 }
 
 

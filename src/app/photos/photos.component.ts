@@ -18,6 +18,8 @@ export class PhotosComponent implements OnInit {
     public galleryService: GalleryService
   ) { }
 
+  public window = window;
+
   public ngOnInit() {
     this.route.params
       .map(params => params.category)
