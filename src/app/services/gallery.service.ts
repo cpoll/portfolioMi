@@ -21,7 +21,7 @@ export class GalleryService {
       .toPromise()
       .then((result) => {
         this.data = result.json();
-        this.switchCategory(this.data.categories[0]);
+        this.switchCategory(this.currentCategory);
         this.selectedPhoto = this.data.photos;
         this.expanderVisible = false;
         this.isGalleryAvailable = true;
