@@ -50,6 +50,7 @@ nav.photo-categories a
 {
     cursor: pointer;
     border: none;
+    border-bottom: solid #444 1px;
     background: none;
     padding: 10px;
 
@@ -63,9 +64,17 @@ nav.photo-categories a
 nav.photo-categories a.selected {
     color:#862;
     pointer-events:none;
+    border-bottom: solid #862 1px;
 }
 
-nav.bottom-photo-categories
-{
+nav.bottom-photo-categories {
     margin-top: 20px;
+}
+nav.bottom-photo-categories a {
+    border: none;
+    border-top: solid #444 1px;
+}
+nav.bottom-photo-categories a.selected {
+    border: none;
+    border-top: solid #862 1px;
 }

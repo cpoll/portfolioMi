@@ -126,12 +126,14 @@
     padding-top: 15px;
     padding-bottom: 15px;
     line-height: 20px;
+
     font-size: 20px;
 
     color: #BBB;
     font-family: "Poiret One", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
     font-style: normal;
+    text-decoration: none;
 }
 .navbar-options a:hover{
     text-decoration: none;
