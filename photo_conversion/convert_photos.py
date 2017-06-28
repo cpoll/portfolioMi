@@ -1,15 +1,22 @@
+'''
+Script file for converting photos for use in blog.
+Also creates the photos.json file
+
+Expectations: source_photos contains folders one deep, where the folder name is the category name
+    only jpg, jpeg and gif will be copied
+'''
+
 import os
+import json
 from PIL import Image
 from shutil import copyfile
-
-# for i in range(1, 34): print('{"src":"assets/photos/animals/'+str(i)+'.jpg", "smallSrc":"assets/photos/animals/'+str(i)+'_small.jpg", "category":"animals"},')
 
 def resize_image(source_path, destination_path, target_width, quality):
     '''
         Resizes the image to target width and saves it in destination_folder
     '''
     print("   opening {0}".format(source_path))
-    image = Image.open(source_path) #with?
+    image = Image.open(source_path)
 
     width, height = image.size
     scale = target_width / float(width)
@@ -19,10 +26,14 @@ def resize_image(source_path, destination_path, target_width, quality):
         print("   scaling from {}/{} to {}/{} (factor {})".format(
             width, height, target_width, target_height, scale))
         image = image.resize((target_width, target_height), Image.ANTIALIAS)
+    else:
+        target_width, target_height = width, height
 
     print("   saving result to {0}".format(destination_path))
     image.save(destination_path, optimize=True, quality=quality)
     print("   resulting filesize: {0}".format(sizeof_fmt(os.stat(destination_path).st_size)))
+
+    return target_width, target_height
 
 def sizeof_fmt(num, suffix='B'):
     '''
@@ -43,34 +54,59 @@ if __name__ == "__main__":
         os.makedirs(TARGET_DIRECTORY)
     print("target directory: {0}".format(TARGET_DIRECTORY))
 
+    CATEGORIES = []
+    PHOTOS = []
+
     for root, dirs, files in os.walk(os.path.join(os.path.dirname(__file__), "source_photos")):
+
         count = 0
+        category = os.path.basename(root)
+
         for filename in files:
             prefix, extension = os.path.splitext(filename)
             filepath = os.path.join(root, filename)
 
-            if extension.lower() not in [".jpg", ".jpeg", ".tif"]:
+            if extension.lower() not in [".jpg", ".jpeg", ".gif"]:
                 print("skipping {0}".format(filepath))
             else:
                 count += 1
+                if category not in CATEGORIES:
+                    CATEGORIES.append(category)
+
                 print("processing {0}".format(filepath))
 
-                target_path_dir = os.path.join(TARGET_DIRECTORY, root).lower()
+                target_path_dir = os.path.join(TARGET_DIRECTORY, category).lower()
                 if not os.path.exists(target_path_dir):
                     os.makedirs(target_path_dir)
 
-                #target_path = os.path.join(target_path_dir, prefix + "{0}" + extension.lower())
-                target_path = os.path.join(target_path_dir, str(count) + "{0}" + extension.lower())
+                target_filename = "{}{}".format(str(count), extension.lower())
+                target_filename_small = "{}_small{}".format(str(count), extension.lower())
+                target_path = os.path.join(target_path_dir, target_filename)
+                target_path_small = os.path.join(target_path_dir, target_filename_small)
 
-                if not os.path.exists(TARGET_DIRECTORY):
-                    os.makedirs(TARGET_DIRECTORY)
-
-                if extension.lower() in [".tif"]:
+                small_height = 0
+                if extension.lower() in [".gif"]:
                     print("copying {} to {}".format(filepath, target_path.format("")))
-                    copyfile(filepath, target_path.format(""))
+                    copyfile(filepath, target_path)
+                    target_filename_small = target_filename
+                    small_height = Image.open(target_path).size[1]
                 else:
-                    #Target 1920
-                    resize_image(filepath, target_path.format(""), 1920, 90)
+                    #1920
+                    resize_image(filepath, target_path, 1920, 85)
+                    #1920/3 (small)
+                    _, small_height = resize_image(filepath, target_path_small, int(1920/3), 85)
 
-                    #Target 1920/3
-                    resize_image(filepath, target_path.format("_small"), int(1920/3), 90)
+                PHOTOS.append({
+                    "src":os.path.join("assets/photos", category, target_filename).replace("\\", "/"),
+                    "smallSrc":os.path.join("assets/photos", category, target_filename_small).replace("\\", "/"),
+                    "smallHeight": small_height,
+                    "category":category
+                })
+
+    PHOTO_JSON_DATA = {
+        "categories": CATEGORIES,
+        "photos": PHOTOS
+    }
+    with open(os.path.join(TARGET_DIRECTORY, "photos.json"), 'w+') as outfile:
+        print("writing json data")
+        json.dump(PHOTO_JSON_DATA, outfile)
