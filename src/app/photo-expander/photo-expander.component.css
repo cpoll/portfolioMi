@@ -36,27 +36,22 @@
 .expander-arrow {
     z-index: 9001;
     position: absolute;
-    top: 48%;
-    width:50px;
-    height:50px;
+    top: 40%;
+    width:100px;
+    height:150px;
 }
 .expander-arrow-left {
     left: 0%;
-
-    /* Cute css arrow hack */
-    width: 0; 
-    height: 0; 
-    border-top: 60px solid transparent;
-    border-bottom: 60px solid transparent;
-    border-right:60px solid red; 
+    background-image: url('/assets/left-arrow.png');
+}
+.expander-arrow-left:hover {
+    background-image: url('/assets/left-arrow-hover.png');
 }
 .expander-arrow-right {
     right: 0%;
-    
-    /* Cute css arrow hack */
-    width: 0; 
-    height: 0; 
-    border-top: 60px solid transparent;
-    border-bottom: 60px solid transparent;
-    border-left: 60px solid blue;
+    background-image: url('/assets/right-arrow.png');
+}
+.expander-arrow-right:hover {
+    right: 0%;
+    background-image: url('/assets/right-arrow-hover.png');
 }
