@@ -11,6 +11,7 @@ export class GalleryService {
   public expanderVisible: boolean;
   public currentCategory: string;
   public photosInCategory: any[] = [];
+  public unloadedPhotosInCategory: any[] = [];
 
   public isGalleryAvailable: boolean = false;
 
@@ -31,6 +32,22 @@ export class GalleryService {
   public switchCategory(category) {
       this.currentCategory = category;
       this.photosInCategory = _.filter(this.data.photos, {category: this.currentCategory});
+      // this.unloadedPhotosInCategory = _.filter(this.data.photos, {category: this.currentCategory});
+      // this.insertNextPhoto();
+  }
+
+  public insertNextPhoto() {
+      // A terrible hack.
+      // Masonry doesn't allow both preserve-order and [useImagesLoaded]="true"
+      // furthermore, if you don't use [useImagesLoaded], and the starting div height is 0
+      // because photos aren't loaded yet, so they don't size the div, the masonry doesn't
+      // rearrange itself once the height changes.
+      // So we're hacking it by putting in the images one at a time...
+      setTimeout(() => {
+        if (this.unloadedPhotosInCategory.length > 0) {
+            this.photosInCategory.push(this.unloadedPhotosInCategory.shift());
+        }
+      }, 1000);
   }
 
   public switchPhoto(photo) {
