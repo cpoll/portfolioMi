@@ -8,9 +8,9 @@
         </a>
       </nav>
 
-      <masonry preserve-order [useImagesLoaded]="false" [options]="{ horizontalOrder: true, percentPosition: true, transitionDuration: '0.5s', stagger: '0.1s' }"><!-- http://masonry.desandro.com/options.html -->
+      <masonry preserve-order [options]="{ horizontalOrder: true, percentPosition: true, transitionDuration: '0.5s', stagger: '0.1s' }"><!-- https://github.com/jelgblad/angular2-masonry -->
           <masonry-brick *ngFor="let photo of galleryService.photosInCategory; let i = index">
-              <img id="photo-{{i}}" src='{{photo.smallSrc}}' (click)="galleryService.switchPhoto(photo)">
+              <img id="photo-{{i}}" src='{{photo.smallSrc}}' (click)="galleryService.switchPhoto(photo)" (load)="refreshMasonry()">
               <div *ngIf="window.DEBUG_MODE" class="debug-name">{{photo.smallSrc}}</div>
           </masonry-brick>
       </masonry>
