@@ -1,6 +1,9 @@
 {
-	"categories": ["animals", "people", "photoshop", "studio", "travel"], 
+	"categories": ["animals", "people", "photoshop", "studio", "travel"],
+	"hiddenCategories": ["for_rafy"],
 	"photos": [
+		{"src": "assets/photos/animals/1.jpg", "smallSrc": "assets/photos/animals/1_small.jpg", "category": "for_rafy"},
+
 		{"src": "assets/photos/animals/1.jpg", "smallSrc": "assets/photos/animals/1_small.jpg", "category": "animals"},
         {"src": "assets/photos/animals/2.jpg", "smallSrc": "assets/photos/animals/2_small.jpg", "category": "animals"},
         {"src": "assets/photos/animals/3.jpg", "smallSrc": "assets/photos/animals/3_small.jpg", "category": "animals"},

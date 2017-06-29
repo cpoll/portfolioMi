@@ -31,6 +31,13 @@ export class GalleryService {
   public switchCategory(category) {
       this.currentCategory = category;
       this.photosInCategory = _.filter(this.data.photos, {category: this.currentCategory});
+
+      // "Unlock" hidden category if visited by url
+      if (this.data.hiddenCategories
+            && this.data.hiddenCategories.indexOf(category) > -1
+            && this.data.categories.indexOf(category) === -1) {
+        this.data.categories.push(category);
+      }
   }
 
   public switchPhoto(photo) {
