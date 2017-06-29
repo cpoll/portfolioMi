@@ -1,7 +1,7 @@
 masonry {
     display:block;
     padding: 0px;
-    margin: 10px;
+    margin: 5%;
     border: solid transparent 2px;
     box-sizing: border-box;
 }
@@ -47,13 +47,16 @@ nav.photo-categories
     text-align: center;
     margin-bottom: 10px;
 }
+nav.bottom-photo-categories {
+    margin-top: 20px;
+}
 nav.photo-categories a 
 {
     cursor: pointer;
-    border: none;
-    border-bottom: solid #444 1px;
     background: none;
     padding: 10px;
+    border: none;
+    pointer-events: none;
 
     font: 20px normal;
     color: #BBB;
@@ -64,19 +67,19 @@ nav.photo-categories a
 }
 nav.photo-categories a.selected {
     color:#862;
-    pointer-events:none;
-    border-bottom: solid #862 1px;
 }
-nav.bottom-photo-categories {
-    margin-top: 20px;
-}
-@media (min-width: 440px) {
+
+@media (min-width: 430px) {
+    nav.photo-categories a {
+        border-bottom: solid #444 1px;
+    }
+    nav.photo-categories a.selected {
+        border-bottom: solid #862 1px;
+    }
     nav.bottom-photo-categories a {
-        border: none;
         border-top: solid #444 1px;
     }
     nav.bottom-photo-categories a.selected {
-        border: none;
         border-top: solid #862 1px;
     }
 }
