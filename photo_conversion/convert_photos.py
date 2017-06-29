@@ -113,7 +113,7 @@ if __name__ == "__main__":
                 PHOTOS.append({
                     "src":os.path.join("assets/photos", category, target_filename).replace("\\", "/"),
                     "smallSrc":os.path.join("assets/photos", category, target_filename_small).replace("\\", "/"),
-                    "smallHeight": small_height,
+                    #"smallHeight": small_height,
                     "category":category
                 })
 
