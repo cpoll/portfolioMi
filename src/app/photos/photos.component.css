@@ -1,6 +1,7 @@
 masonry {
     display:block;
     padding: 0px;
+    margin: 10px;
     border: solid transparent 2px;
     box-sizing: border-box;
 }
@@ -15,7 +16,7 @@ masonry-brick {
 @media (max-width: 703px) {
     masonry-brick {
         width: 50%;
-    }
+  }
 }
 @media (max-width: 320px) {
     masonry-brick {
