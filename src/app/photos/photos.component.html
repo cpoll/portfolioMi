@@ -4,7 +4,7 @@
 
       <nav class="photo-categories">
         <a *ngFor="let category of galleryService.data.categories" [routerLink]="['/photo', category]" [ngClass]="{selected: galleryService.currentCategory === category}">
-          {{category}}
+          {{category | prettyPrintVariable }}
         </a>
       </nav>
 
@@ -18,7 +18,7 @@
       <nav class="photo-categories bottom-photo-categories">
         <a *ngFor="let category of galleryService.data.categories" [routerLink]="['/photo', category]" [ngClass]="{selected: galleryService.currentCategory === category}"
           (click)="scrollToTop()">
-          {{category}}
+          {{category | prettyPrintVariable}}
         </a>
       </nav>
 

@@ -10,13 +10,15 @@ import { GalleryService } from './services/gallery.service';
 import { MasonryModule } from 'angular2-masonry';
 import { PhotoExpanderComponent } from './photo-expander/photo-expander.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
+import { PrettyPrintVariablePipe } from './pipe/pretty-print-variable.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PhotosComponent,
     PhotoExpanderComponent,
-    ContactPageComponent
+    ContactPageComponent,
+    PrettyPrintVariablePipe
   ],
   imports: [
     BrowserModule,
