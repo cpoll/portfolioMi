@@ -22,10 +22,17 @@
 }
 
 .image-container img {
+    /* Center the image in the container */
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: block;
     max-width: 100%;
     max-height: 100%;
-    margin: auto;
-    display: block;
     
     /*Hack for small images (we want an image to fit to width or height - small ones will do neither)
     Note that transform:scale(2) is not an adequate replacement, it will expand outside of the box
