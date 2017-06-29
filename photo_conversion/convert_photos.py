@@ -5,11 +5,13 @@ Also creates the photos.json file
 Expectations: source_photos contains folders one deep, where the folder name is the category name
     only jpg, jpeg and gif will be copied
 '''
+#pylint: disable=C0301
 
 import os
 import json
-from PIL import Image
+import re
 from shutil import copyfile
+from PIL import Image
 
 def resize_image(source_path, destination_path, target_width, quality):
     '''
@@ -34,6 +36,18 @@ def resize_image(source_path, destination_path, target_width, quality):
     print("   resulting filesize: {0}".format(sizeof_fmt(os.stat(destination_path).st_size)))
 
     return target_width, target_height
+
+
+_NUMERICAL_SORT_REGEX = re.compile(r'(\d+)')
+def numerical_sort(value):
+    '''
+        Sorting method to sort "2 blah" before "10 blah"
+        Courtesy of Martijn Pieters
+        https://stackoverflow.com/questions/12093940/reading-files-in-a-particular-order-in-python
+    '''
+    parts = _NUMERICAL_SORT_REGEX.split(value)
+    parts[1::2] = map(int, parts[1::2])
+    return parts
 
 def sizeof_fmt(num, suffix='B'):
     '''
@@ -62,7 +76,7 @@ if __name__ == "__main__":
         count = 0
         category = os.path.basename(root)
 
-        for filename in files:
+        for filename in sorted(files, key=numerical_sort):
             prefix, extension = os.path.splitext(filename)
             filepath = os.path.join(root, filename)
 
