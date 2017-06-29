@@ -56,7 +56,6 @@ nav.photo-categories a
     background: none;
     padding: 10px;
     border: none;
-    pointer-events: none;
 
     font: 20px normal;
     color: #BBB;
@@ -67,6 +66,7 @@ nav.photo-categories a
 }
 nav.photo-categories a.selected {
     color:#862;
+    pointer-events:none;
 }
 
 @media (min-width: 430px) {
