@@ -24,3 +24,7 @@ deployment:
     branch: develop
     commands:
       - sh ./deploy_staging.sh
+  prod:
+    branch: master
+    commands:
+      - sh ./deploy_prod.sh
