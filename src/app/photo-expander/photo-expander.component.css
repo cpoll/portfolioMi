@@ -30,9 +30,11 @@
     right: 0;
     bottom: 0;
 
+    border: solid #222 1px;
+
     display: block;
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 90%;
+    max-height: 90%;
     
     /*Hack for small images (we want an image to fit to width or height - small ones will do neither)
     Note that transform:scale(2) is not an adequate replacement, it will expand outside of the box
