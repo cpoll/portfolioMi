@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactPageComponent implements OnInit {
 
-  constructor() { }
+  constructor() { /* Empty */ }
 
-  ngOnInit() {
+  public ngOnInit() {
+    /* Empty */
   }
 
 }

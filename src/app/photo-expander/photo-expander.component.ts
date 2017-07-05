@@ -8,35 +8,35 @@ import { GalleryService } from '../services/gallery.service';
 })
 export class PhotoExpanderComponent implements OnInit {
 
-  constructor(
-    public galleryService: GalleryService
-  ) { }
+    constructor(
+        public galleryService: GalleryService
+    ) { }
 
-  public ngOnInit() {
-    /* Empty */
-  }
-
-  @HostListener('document:keydown', ['$event'])
-  public handleKeyboardEvent(event: KeyboardEvent) {
-    switch (event.key) {
-      case 'ArrowLeft':
-      case 'a':
-      case 'h': {
-        this.galleryService.previousPhoto();
-        break;
-      }
-      case 'ArrowRight':
-      case 'd':
-      case 'l': {
-        this.galleryService.nextPhoto();
-        break;
-      }
-      case 'Escape':
-      case 'Enter': {
-        this.galleryService.hideExpander();
-        break;
-      }
+    public ngOnInit() {
+        /* Empty */
     }
-  }
+
+    @HostListener('document:keydown', ['$event'])
+    public handleKeyboardEvent(event: KeyboardEvent) {
+        switch (event.key) {
+            case 'ArrowLeft':
+            case 'a':
+            case 'h': {
+                this.galleryService.previousPhoto();
+                break;
+            }
+            case 'ArrowRight':
+            case 'd':
+            case 'l': {
+                this.galleryService.nextPhoto();
+                break;
+            }
+            case 'Escape':
+            case 'Enter': {
+                this.galleryService.hideExpander();
+                break;
+            }
+        }
+    }
 
 }

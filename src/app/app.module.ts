@@ -13,35 +13,35 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 import { PrettyPrintVariablePipe } from './pipe/pretty-print-variable.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PhotosComponent,
-    PhotoExpanderComponent,
-    ContactPageComponent,
-    PrettyPrintVariablePipe
-  ],
-  imports: [
-    BrowserModule,
-    HttpModule,
-    MasonryModule,
-    RouterModule.forRoot([
-      {
-        path: 'photo/:category',
-        component: PhotosComponent
-      },
-      {
-        path: 'contact',
-        component: ContactPageComponent
-      },
-      {
-        path: '',
-        redirectTo: 'photo/animals',
-        pathMatch: 'full'
-      }
-    ])
-  ],
-  exports: [RouterModule, PhotoExpanderComponent],
-  providers: [GalleryService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        PhotosComponent,
+        PhotoExpanderComponent,
+        ContactPageComponent,
+        PrettyPrintVariablePipe
+    ],
+    imports: [
+        BrowserModule,
+        HttpModule,
+        MasonryModule,
+        RouterModule.forRoot([
+        {
+            path: 'photo/:category',
+            component: PhotosComponent
+        },
+        {
+            path: 'contact',
+            component: ContactPageComponent
+        },
+        {
+            path: '',
+            redirectTo: 'photo/animals',
+            pathMatch: 'full'
+        }
+        ])
+    ],
+    exports: [RouterModule, PhotoExpanderComponent],
+    providers: [GalleryService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
