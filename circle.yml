@@ -8,7 +8,7 @@ machine:
 dependencies:
   pre:
     - npm install npm@latest -g
-    - npm install @angular/cli@latest -g
+    - npm install @angular/cli@1.1.2 -g
 
 compile:
   override:
